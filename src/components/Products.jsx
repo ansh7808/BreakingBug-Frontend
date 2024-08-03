@@ -7,6 +7,7 @@ import { BasicButton } from '../utils/buttonStyles';
 import { useNavigate } from 'react-router-dom';
 import Popup from './Popup';
 import { addStuff } from '../redux/userHandle';
+import { productDataList } from '../utils/products';
 
 const Products = ({}) => {
   const dispatch = useDispatch();
@@ -88,10 +89,9 @@ const Products = ({}) => {
 
       <Container sx={{ mt: 10, mb: 10, display: "flex", justifyContent: 'center', alignItems: "center" }}>
         <Pagination
-          count={Math.ceil(productData.length / itemsPerPage)}
+          count={Math.ceil(productDataList.length / itemsPerPage)}//replaced productData to productDataList
           page={currentPage}
           color="secondary"
-
         />
       </Container>
 

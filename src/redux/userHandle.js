@@ -101,10 +101,21 @@ export const updateCustomer = (fields, id) => async (dispatch) => {
     try {
         await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
         dispatch(stuffUpdated());
+<<<<<<< HEAD
     } catch (error) {
         dispatch(getError(error));
     }
 };
+=======
+
+ } catch (error) {
+
+        dispatch(getError(error));
+
+    }
+}
+    
+>>>>>>> f2a86a3a27022fe89d8fef305a55269620d2acf9
 
 export const getProductsbySeller = (id) => async (dispatch) => {
     dispatch(getRequest());

@@ -77,3 +77,4 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
 export const NavLogo = styled(Link)`
     display: flex;
 `;
+

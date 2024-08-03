@@ -12,7 +12,7 @@ import { generateRandomColor, timeAgo } from '../../../utils/helperFunctions';
 import { underControl } from '../../../redux/userSlice';
 import AlertDialogSlide from '../../../components/AlertDialogSlide';
 
-const ViewProductSeller = () => {
+const ViewProductSeller = (buttonText) => { //added buttonText as a props
   const dispatch = useDispatch();
   const params = useParams();
   const productID = params.id;
@@ -296,10 +296,11 @@ const ViewProductSeller = () => {
                       <ReviewCard key={index}>
                         <ReviewCardDivision>
                           <Avatar sx={{ width: "60px", height: "60px", marginRight: "1rem", backgroundColor: generateRandomColor(review._id) }}>
-                            {String(reviewreviewername).charAt(0)}
+                            {String(review.reviewer.name).charAt(0)}
                           </Avatar>
-                          <ReviewDetails>
-                            <Typography variant="h6">{reviewreviewername}</Typography>
+                          //corrected reviewreviewername to review.reviewer.name
+                          <ReviewDetails> 
+                            <Typography variant="h6">{review.reviewer.name}</Typography>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
 
                               <Typography variant="body2">

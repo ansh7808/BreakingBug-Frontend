@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Table, TableBody, TableCell, TableContainer, TableRow, styled} from '@mui/material';
 
-const TableTemplate = ({columns, rows}) => {
+const TableTemplate = ({buttonHaver,columns, rows}) => { //added buttonHaver as props
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   return (
@@ -40,7 +40,7 @@ const TableTemplate = ({columns, rows}) => {
                       );
                     })}
                     <StyledTableCell align="center">
-                      <ButtonHaver row={row}/>
+                      <buttonHaver row={row}/> //changed ButtonHaver to buttonHaver
                     </StyledTableCell>
                   </StyledTableRow>
                 );

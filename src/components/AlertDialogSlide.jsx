@@ -28,7 +28,7 @@ const AlertDialogSlide = ({ dialog, showDialog, setShowDialog,taskHandler}) => {
                 <div>
                     <RedButton onClick={() => {
                         handleClose()
-                        taskHandler()
+                        // taskHandler()
                     }}>Yes</RedButton>
                 </div>
             </DialogActions>

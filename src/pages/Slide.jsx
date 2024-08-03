@@ -1,6 +1,6 @@
 import { Divider, Box, Typography, Button, styled, Container } from '@mui/material';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; //react-router-dom not in react-router
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 

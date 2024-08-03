@@ -10,6 +10,8 @@ import { addStuff } from '../redux/userHandle';
 
 const Products = ({}) => {
   const dispatch = useDispatch();
+  //import the useNavigate hook from react-router-dom and use it in your component.
+  const navigate = useNavigate();
 
   const itemsPerPage = 9;
 

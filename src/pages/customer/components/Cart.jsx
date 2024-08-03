@@ -5,17 +5,10 @@ import styled from 'styled-components';
 import emptyCart from "../../../assets/cartimg.png"
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-<<<<<<< HEAD
 import { addToCart, removeAllFromCart, removeFromCart } from '../../../redux/userSlice';
 import { BasicButton, LightPurpleButton } from '../../../utils/buttonStyles';//correct file directory
 import { useNavigate } from 'react-router-dom';
 import { updateCustomer } from '../../../redux/userHandle';//correct file directory
-=======
-import { addToCart, removeAllFromCart, removeFromCart, updateCurrentUser } from '../../../redux/userSlice';
-import { BasicButton, LightPurpleButton } from '../../../utils/buttonStyles';//replaced styles with buttonStyles
-import { useNavigate } from 'react-router-dom';
-import{updateCustomer} from '../../../redux/userHandle'; //changed ../../../redux/userslice to ../../..redux/userHandle
->>>>>>> 9396c534bf06216b53c25eb7308443f13155dcc5
 
 const Cart = ({ setIsCartOpen }) => {
 

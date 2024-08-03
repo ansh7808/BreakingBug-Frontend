@@ -32,23 +32,22 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+    
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElSign, setAnchorElSign] = React.useState(null);
+    
+    const open = Boolean(anchorElUser);
+    const openSign = Boolean(anchorElSign);
+    const [isCartOpen, setIsCartOpen] = React.useState(false);
 
-    //correction variable ancorElNav, it seems like it was meant to be anchorElNav
+    //correction variable ancorElNav, it seems like it was meant to be anchorElNav but The anchorElNav variable was mistakenly referenced in the useEffect
     React.useEffect(() => {
         if (currentRole === "Customer") {
             console.log(currentUser);
             dispatch(updateCustomer(currentUser, currentUser._id));
         }
-    }, [currentRole, currentUser, dispatch, anchorElNav])
-
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [anchorElSign, setAnchorElSign] = React.useState(null);
-
-    const open = Boolean(anchorElUser);
-    const openSign = Boolean(anchorElSign);
-
-    const [isCartOpen, setIsCartOpen] = React.useState(false);
+    }, [currentRole, currentUser, dispatch])
 
     // Cart - Change
     const handleOpenCart = () => {

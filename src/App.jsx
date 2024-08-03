@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter,Route, Navigate } from 'react-router-dom'
+import {Routes} from 'react-router' //remove routes from react-router dom and import from react-router at line 2
 import { useDispatch, useSelector } from 'react-redux';
 import Home from './pages/Home'
 import ViewProduct from './pages/ViewProduct'

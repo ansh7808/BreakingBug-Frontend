@@ -43,13 +43,13 @@ export const authUser = (fields, role, mode) => async (dispatch) => {
         dispatch(authError(error));
     }
 };
-
+//remove '---'
 export const addStuff = (address, fields) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
         const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/${address}`, fields, {
-            headers: { 'Content-Type': 'application/json' },---
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (result.data.message) {
@@ -95,20 +95,17 @@ export const deleteStuff = (id, address) => async (dispatch) => {
     }
 }
 
+//change
 export const updateCustomer = (fields, id) => async (dispatch) => {
     dispatch(updateCurrentUser(fields));
-    await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
-};
 
+    try {
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
         dispatch(stuffUpdated());
-
-      } catch (error) {
-
+    } catch (error) {
         dispatch(getError(error));
-
     }
-
-    }
+};
 
 export const getProductsbySeller = (id) => async (dispatch) => {
     dispatch(getRequest());

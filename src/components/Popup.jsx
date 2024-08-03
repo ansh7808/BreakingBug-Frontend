@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
+<<<<<<< HEAD
 import { underControl } from '../redux/userSlice';//change
+=======
+import { underControl } from '../redux/userSlice';//changed ../../../redux/userslice to ../../..redux/userHandle
+>>>>>>> 9396c534bf06216b53c25eb7308443f13155dcc5
 import MuiAlert from '@mui/material/Alert';
 import { Snackbar } from '@mui/material';
 

@@ -170,8 +170,9 @@ const userSlice = createSlice({
         },
 
         isTokenValid: (state) => {
+            if (state.currentToken) {   // Optionally,  added additional checks on the decoded token if needed
             const decodedToken = jwtDecode(state.currentToken);
-            if (state.currentToken) {              state.isLoggedIn = true;
+                        state.isLoggedIn = true;
             } else {
                 localStorage.removeItem('user');
                 state.currentUser = null;

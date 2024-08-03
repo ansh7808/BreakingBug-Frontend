@@ -9,21 +9,20 @@ import Popup from './Popup';
 import { addStuff } from '../redux/userHandle';
 import { productDataList } from '../utils/products';
 
-const Products = ({}) => {
+const Products = () => {
   const dispatch = useDispatch();
-  //import the useNavigate hook from react-router-dom and use it in your component.
   const navigate = useNavigate();
 
   const itemsPerPage = 9;
 
-  const { currentRole, responseSearch } = useSelector();
+  const { currentRole, responseSearch } = useSelector(state => state.user);
   const [currentPage, setCurrentPage] = useState(1);
   const [showPopup, setShowPopup] = useState(false);
   const [message, setMessage] = useState("");
 
   const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem + itemsPerPage;
-  const currentItems = (indexOfFirstItem, indexOfLastItem);
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = responseSearch ? responseSearch.slice(indexOfFirstItem, indexOfLastItem) : [];
 
   const handleAddToCart = (event, product) => {
     event.stopPropagation();
@@ -32,17 +31,20 @@ const Products = ({}) => {
 
   const handleUpload = (event, product) => {
     event.stopPropagation();
-    console.log(product);
     dispatch(addStuff("ProductCreate", product));
   };
 
   const messageHandler = (event) => {
     event.stopPropagation();
-    setMessage("You have to login or register first")
-    setShowPopup(true)
+    setMessage("You have to login or register first");
+    setShowPopup(true);
   };
 
-  if (!responseSearch) {
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  if (!responseSearch || responseSearch.length === 0) {
     return <div>Product not found</div>;
   }
 
@@ -56,31 +58,22 @@ const Products = ({}) => {
             sx={{ cursor: "pointer" }}
           >
             <ProductContainer>
-              <ProductImage src={data.productImage} />
+              <ProductImage src={data.productImage} alt={data.productName} />
               <ProductName>{data.productName}</ProductName>
               <PriceMrp>{data.price.mrp}</PriceMrp>
               <PriceCost>₹{data.price.cost}</PriceCost>
               <PriceDiscount>{data.price.discountPercent}% off</PriceDiscount>
               <AddToCart>
                 {currentRole === "Customer" &&
-                  <>
-                    <BasicButton
-                      onClick={(event) => handleAddToCart(event, data)}
-                    >
-                      Add To Cart
-                    </BasicButton>
-                  </>
+                  <BasicButton onClick={(event) => handleAddToCart(event, data)}>
+                    Add To Cart
+                  </BasicButton>
                 }
                 {currentRole === "Shopcart" &&
-                  <>
-                    <BasicButton
-                      onClick={(event) => handleUpload(event, data)}
-                    >
-                      Upload
-                    </BasicButton>
-                  </>
+                  <BasicButton onClick={(event) => handleUpload(event, data)}>
+                    Upload
+                  </BasicButton>
                 }
-
               </AddToCart>
             </ProductContainer>
           </Grid>
@@ -89,15 +82,16 @@ const Products = ({}) => {
 
       <Container sx={{ mt: 10, mb: 10, display: "flex", justifyContent: 'center', alignItems: "center" }}>
         <Pagination
-          count={Math.ceil(productDataList.length / itemsPerPage)}//replaced productData to productDataList
+          count={Math.ceil((responseSearch || []).length / itemsPerPage)}
           page={currentPage}
+          onChange={handlePageChange}
           color="secondary"
         />
       </Container>
 
       <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
     </>
-  )
+  );
 };
 
 export default Products;

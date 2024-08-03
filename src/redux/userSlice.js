@@ -267,6 +267,7 @@ const userSlice = createSlice({
         },
 
         setFilteredProducts: (state, action) => {
+           
             state.filteredProducts = action.payload;
             state.responseSearch = null;
             state.loading = false;
@@ -282,6 +283,8 @@ const userSlice = createSlice({
 
 //fix setFilteredProducts & getCustomersListFailed & specificProductData
 export const {
+    
+    productData,
     authRequest,
     underControl,
     stuffAdded,

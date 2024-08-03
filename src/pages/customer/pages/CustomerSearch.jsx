@@ -9,13 +9,12 @@ const CustomerSearch = ({ mode }) => {
 
     const dispatch = useDispatch();
 
-    const [searchTerm, setSearchTerm] = useState("")
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const { filteredProducts } = useSelector(state => state.user);
+    const filteredProducts = useSelector(state => state.user.filteredProducts);
 
     const handleSearch = (e) => {
-        e.preventDefault();//added event object in handleSearch function  and called preventDefault() using object e
-
+        e.preventDefault();
         dispatch(getSearchedProducts("searchProduct", searchTerm));
     };
 
@@ -23,7 +22,6 @@ const CustomerSearch = ({ mode }) => {
         <div>
             {
                 mode === "Mobile" ?
-
                     <>
                         <SearchContainer onSubmit={handleSearch}>
                             <TextField
@@ -51,7 +49,6 @@ const CustomerSearch = ({ mode }) => {
                         }
                     </>
             }
-
         </div>
     );
 };

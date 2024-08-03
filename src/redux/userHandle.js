@@ -125,7 +125,7 @@ export const getProductsbySeller = (id) => async (dispatch) => {
 
 export const getProducts = () => async (dispatch) => {
     dispatch(getRequest());
-
+    console.log(process.env.REACT_APP_BASE_URL);
     try {
         const result = await axios.get(`${process.env.REACT_APP_BASE_URL}/getProducts`);
         if (result.data.message) {
@@ -192,14 +192,16 @@ export const getSpecificProducts = (id, address) => async (dispatch) => {
 
 export const getSearchedProducts = (address, key) => async (dispatch) => {
     dispatch(getRequest());
-
+  
     try {
         const result = await axios.get(`${process.env.REACT_APP_BASE_URL}/${address}/${key}`);
+        console.log(result.data );
+        console.log(result.data);
         if (result.data.message) {
-            dispatch(getSearchFailed(result.data.message));
+            dispatch(getSearchFailed(result.data));
         }
         else {
-            dispatch(setFilteredProducts(result.files));
+            dispatch(setFilteredProducts(result));
         }
 
     } catch (error) {

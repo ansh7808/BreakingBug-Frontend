@@ -165,7 +165,7 @@ export const getProductDetails = (id) => async (dispatch) => {
   }
 };
 
-export const getCustomers = (id) => async (dispatch) => {
+export const getCustomers = (id,address) => async (dispatch) => {//added address in bracket (id,address)
   dispatch(getRequest());
 
   try {

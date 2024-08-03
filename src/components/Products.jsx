@@ -10,6 +10,7 @@ import { addStuff } from '../redux/userHandle';
 
 const Products = ({}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const itemsPerPage = 9;
 

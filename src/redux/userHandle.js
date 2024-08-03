@@ -106,15 +106,12 @@ export const deleteStuff = (id, address) => async (dispatch) => {
 export const updateCustomer = (fields, id) => async (dispatch) => {
   dispatch(updateCurrentUser(fields));
 
-  try {
-    await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`,
-      fields
-    );
-    dispatch(stuffUpdated());
-  } catch (error) {
-    dispatch(getError(error));
-  }
+    try {
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
+        dispatch(stuffUpdated());
+    } catch (error) {
+        dispatch(getError(error));
+    }
 };
 
 export const getProductsbySeller = (id) => async (dispatch) => {

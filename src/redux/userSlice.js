@@ -280,6 +280,7 @@ const userSlice = createSlice({
 });
 
 export const {
+    getCustomersListFailed,//added this getCustomerListFailed for importing in  userHandle.js
     authRequest,
     underControl,
     stuffAdded,
@@ -300,6 +301,7 @@ export const {
     getSellerProductsFailed,
     getProductDetailsFailed,
     getFailed,
+    setFilteredProducts,//added this to get exported in userHandle.js
     getError,
     getSearchFailed,
     customersListSuccess,

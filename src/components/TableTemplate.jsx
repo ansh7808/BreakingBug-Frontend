@@ -27,7 +27,7 @@ const TableTemplate = ({columns, rows}) => {
               .map((row) => {
                 return (
                   <StyledTableRow hover role="checkbox" tabIndex={+1} key={row.Id}>
-                    {columns.map((column) => {
+                    {columns.map((column,id) => {
                       const value = row[column.id];
                       return (
                         <StyledTableCell key={column.Id} align={column.align}>

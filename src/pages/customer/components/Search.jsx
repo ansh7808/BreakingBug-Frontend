@@ -30,7 +30,7 @@ const Search = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}//replaced etargetvalue to e.target.value
                 onKeyDown={(e) => {
-                    if (e.key!== 'Enter') {
+                    if (e.key!== 'Enter') {//changed ekey to e.key
                         handleSearch();
                     }
                 }}

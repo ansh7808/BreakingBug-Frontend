@@ -102,13 +102,13 @@ export const updateCustomer = (fields, id) => async (dispatch) => {
 
         dispatch(stuffUpdated());
 
-      } catch (error) {
+ } catch (error) {
 
         dispatch(getError(error));
 
     }
-
-    }
+}
+    
 
 export const getProductsbySeller = (id) => async (dispatch) => {
     dispatch(getRequest());

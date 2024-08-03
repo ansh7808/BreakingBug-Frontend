@@ -8,7 +8,7 @@ import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp
 import { addToCart, removeAllFromCart, removeFromCart, updateCurrentUser } from '../../../redux/userSlice';
 import { BasicButton, LightPurpleButton } from '../../../utils/styles';
 import { useNavigate } from 'react-router-dom';
-//removed :-import{updateCustomer} from '../../../redux/userSlice';
+import{updateCustomer} from '../../../redux/userHandle'; //changed ../../../redux/userslice to ../../..redux/userHandle
 
 const Cart = ({ setIsCartOpen }) => {
 

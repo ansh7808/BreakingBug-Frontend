@@ -13,8 +13,8 @@ const CustomerSearch = ({ mode }) => {
 
     const { filteredProducts } = useSelector(state => state.user);
 
-    const handleSearch = () => {
-        preventDefault()
+    const handleSearch = (e) => {
+        e.preventDefault();//added event object in handleSearch function  and called preventDefault() using object e
 
         dispatch(getSearchedProducts("searchProduct", searchTerm));
     };

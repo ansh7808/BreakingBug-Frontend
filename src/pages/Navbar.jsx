@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Login, Logout, Shop2, Store } from '@mui/icons-material';
-//installed react-router-dom for linkand useNavigate
+
 import { Link, useNavigate } from 'react-router-dom';
 import { Avatar, Badge, Divider, Drawer, ListItemIcon } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,29 +32,29 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+    
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElSign, setAnchorElSign] = React.useState(null);
+    
+    const open = Boolean(anchorElUser);
+    const openSign = Boolean(anchorElSign);
+    const [isCartOpen, setIsCartOpen] = React.useState(false);
 
+    //correction variable ancorElNav, it seems like it was meant to be anchorElNav but The anchorElNav variable was mistakenly referenced in the useEffect
     React.useEffect(() => {
         if (currentRole === "Customer") {
             console.log(currentUser);
             dispatch(updateCustomer(currentUser, currentUser._id));
         }
-    }, [currentRole, currentUser, dispatch, ancorElNav])
+    }, [currentRole, currentUser, dispatch])
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [anchorElSign, setAnchorElSign] = React.useState(null);
-
-    const open = Boolean(anchorElUser);
-    const openSign = Boolean(anchorElSign);
-
-    const [isCartOpen, setIsCartOpen] = React.useState(false);
-
-    // Cart
-    const handleOpenCart = () => { // removed extra space between handle and opencart
+    // Cart - Change
+    const handleOpenCart = () => {
         setIsCartOpen(true);
     };
 
-    const handleCloseCart = () => { //corrected function name from handleOpenCart to handleCloseCart
+    const handleCloseCart = () => {
         setIsCartOpen(false);
     };
 

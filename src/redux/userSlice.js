@@ -279,8 +279,8 @@ const userSlice = createSlice({
     },
 });
 
+//fix setFilteredProducts & getCustomersListFailed
 export const {
-    getCustomersListFailed,//added this getCustomerListFailed for importing in  userHandle.js
     authRequest,
     underControl,
     stuffAdded,
@@ -300,12 +300,13 @@ export const {
     getProductsFailed,
     getSellerProductsFailed,
     getProductDetailsFailed,
+    getCustomersListFailed,
     getFailed,
-    setFilteredProducts,//added this to get exported in userHandle.js
     getError,
     getSearchFailed,
     customersListSuccess,
     getSpecificProductsFailed,
+    setFilteredProducts,
     specificProductSuccess,
     addToCart,
     removeFromCart,

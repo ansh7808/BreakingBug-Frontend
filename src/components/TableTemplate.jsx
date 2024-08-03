@@ -40,7 +40,7 @@ const TableTemplate = ({buttonHaver,columns, rows}) => { //added buttonHaver as 
                       );
                     })}
                     <StyledTableCell align="center">
-                      <buttonHaver row={row}/> //changed ButtonHaver to buttonHaver
+                      <buttonHaver row={row}/>
                     </StyledTableCell>
                   </StyledTableRow>
                 );

@@ -12,6 +12,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import ProductCard from '../components/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpecificProducts } from '../../../redux/userHandle';
+//imported specificProductData from userSlice
+import { specificProductData } from '../../../redux/userSlice';
 
 const CustomerOrders = () => {
 

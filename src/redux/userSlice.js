@@ -279,7 +279,7 @@ const userSlice = createSlice({
     },
 });
 
-//fix setFilteredProducts & getCustomersListFailed
+//fix setFilteredProducts & getCustomersListFailed & specificProductData
 export const {
     authRequest,
     underControl,
@@ -314,6 +314,7 @@ export const {
     removeAllFromCart,
     fetchProductDetailsFromCart,
     updateCurrentUser,
+    specificProductData,
     
 } = userSlice.actions;
 

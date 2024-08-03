@@ -279,6 +279,7 @@ const userSlice = createSlice({
     },
 });
 
+//fix setFilteredProducts & getCustomersListFailed
 export const {
     authRequest,
     underControl,
@@ -299,11 +300,13 @@ export const {
     getProductsFailed,
     getSellerProductsFailed,
     getProductDetailsFailed,
+    getCustomersListFailed,
     getFailed,
     getError,
     getSearchFailed,
     customersListSuccess,
     getSpecificProductsFailed,
+    setFilteredProducts,
     specificProductSuccess,
     addToCart,
     removeFromCart,
